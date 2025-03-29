@@ -559,13 +559,13 @@ export interface CheckoutBuyerIdentityInput {
  * The input fields required to create a checkout.
  */
 export interface CheckoutCreateInput {
-  allowPartialAddresses?: boolean | null;
-  customAttributes?: AttributeInput[] | null;
   email?: string | null;
   lineItems?: CheckoutLineItemInput[] | null;
-  note?: string | null;
-  buyerIdentity?: CheckoutBuyerIdentityInput | null;
   shippingAddress?: MailingAddressInput | null;
+  note?: string | null;
+  customAttributes?: AttributeInput[] | null;
+  allowPartialAddresses?: boolean | null;
+  buyerIdentity?: CheckoutBuyerIdentityInput | null;
 }
 
 /**

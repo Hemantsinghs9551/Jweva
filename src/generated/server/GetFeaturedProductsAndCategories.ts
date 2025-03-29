@@ -225,12 +225,14 @@ export interface GetFeaturedProductsAndCategories_products_edges_node {
    */
   id: string;
   /**
-   * The product’s title.
+   * The name for the product that displays to customers. The title is used to construct the product's handle.
+   * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
    */
   title: string;
   /**
-   * A human-friendly unique string for the Product automatically generated from its title.
-   * They are used by the Liquid templating language to refer to objects.
+   * A unique, human-readable string of the product's title.
+   * A handle can contain letters, hyphens (`-`), and numbers, but no spaces.
+   * The handle is used in the online store URL for the product.
    */
   handle: string;
   /**
@@ -238,11 +240,14 @@ export interface GetFeaturedProductsAndCategories_products_edges_node {
    */
   availableForSale: boolean;
   /**
-   * A categorization that a product can be tagged with, commonly used for filtering and searching.
+   * The [product type](https: // help.shopify.com/manual/products/details/product-type)
+   * that merchants define.
    */
   productType: string;
   /**
-   * The price range.
+   * The minimum and maximum prices of a product, expressed in decimal numbers.
+   * For example, if the product is priced between $10.00 and $50.00,
+   * then the price range is $10.00 - $50.00.
    */
   priceRange: GetFeaturedProductsAndCategories_products_edges_node_priceRange;
   /**
@@ -250,7 +255,7 @@ export interface GetFeaturedProductsAndCategories_products_edges_node {
    */
   images: GetFeaturedProductsAndCategories_products_edges_node_images;
   /**
-   * List of the product’s variants.
+   * A list of [variants](/docs/api/storefront/latest/objects/ProductVariant) that are associated with the product.
    */
   variants: GetFeaturedProductsAndCategories_products_edges_node_variants;
 }
@@ -285,7 +290,8 @@ export interface GetFeaturedProductsAndCategories {
    */
   collections: GetFeaturedProductsAndCategories_collections;
   /**
-   * List of the shop’s products.
+   * Returns a list of the shop's products. For storefront search, use the
+   * [`search`](https: // shopify.dev/docs/api/storefront/latest/queries/search) query.
    */
   products: GetFeaturedProductsAndCategories_products;
 }

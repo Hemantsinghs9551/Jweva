@@ -31,7 +31,9 @@ export interface GetHighestPrice_products_edges_node_priceRange {
 export interface GetHighestPrice_products_edges_node {
   __typename: 'Product';
   /**
-   * The price range.
+   * The minimum and maximum prices of a product, expressed in decimal numbers.
+   * For example, if the product is priced between $10.00 and $50.00,
+   * then the price range is $10.00 - $50.00.
    */
   priceRange: GetHighestPrice_products_edges_node_priceRange;
 }
@@ -54,7 +56,8 @@ export interface GetHighestPrice_products {
 
 export interface GetHighestPrice {
   /**
-   * List of the shop’s products.
+   * Returns a list of the shop's products. For storefront search, use the
+   * [`search`](https: // shopify.dev/docs/api/storefront/latest/queries/search) query.
    */
   products: GetHighestPrice_products;
 }

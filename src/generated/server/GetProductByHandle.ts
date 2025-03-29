@@ -129,12 +129,14 @@ export interface GetProductByHandle_productByHandle {
    */
   id: string;
   /**
-   * The product’s title.
+   * The name for the product that displays to customers. The title is used to construct the product's handle.
+   * For example, if a product is titled "Black Sunglasses", then the handle is `black-sunglasses`.
    */
   title: string;
   /**
-   * A human-friendly unique string for the Product automatically generated from its title.
-   * They are used by the Liquid templating language to refer to objects.
+   * A unique, human-readable string of the product's title.
+   * A handle can contain letters, hyphens (`-`), and numbers, but no spaces.
+   * The handle is used in the online store URL for the product.
    */
   handle: string;
   /**
@@ -142,16 +144,18 @@ export interface GetProductByHandle_productByHandle {
    */
   availableForSale: boolean;
   /**
-   * Stripped description of the product, single line with HTML tags removed.
+   * A single-line description of the product, with [HTML tags](https: // developer.mozilla.org/en-US/docs/Web/HTML) removed.
    */
   description: string;
   /**
-   * The URL used for viewing the resource on the shop's Online Store. Returns
-   * `null` if the resource is currently not published to the Online Store sales channel.
+   * The product's URL on the online store.
+   * If `null`, then the product isn't published to the online store sales channel.
    */
   onlineStoreUrl: any | null;
   /**
-   * List of product options.
+   * A list of product options. The limit is defined by the [shop's resource limits for product
+   * options](/docs/api/admin-graphql/latest/objects/Shop#field-resourcelimits)
+   * (`Shop.resourceLimits.maxProductOptions`).
    */
   options: GetProductByHandle_productByHandle_options[];
   /**
@@ -159,7 +163,7 @@ export interface GetProductByHandle_productByHandle {
    */
   images: GetProductByHandle_productByHandle_images;
   /**
-   * List of the product’s variants.
+   * A list of [variants](/docs/api/storefront/latest/objects/ProductVariant) that are associated with the product.
    */
   variants: GetProductByHandle_productByHandle_variants;
 }
